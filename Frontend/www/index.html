@@ -2,13 +2,13 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Pizza</title>
+    <title>Суши Vega</title>
 
     <!-- Bootsrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- LESS основний файл -->
-    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less" />
+    <link rel="stylesheet/less" type="text/css" href="assets/less/main.less"/>
     <!-- LESS JavaScript компілятор -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 
@@ -16,65 +16,305 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_1.jpg">
 
-                <div class="caption"><h3>Thumbnail label</h3>
+<div class="header navbar navbar-fixed-top navbar-inverse">
+    <div class=" navbar-inner header-text-part ">
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 2</a>
-                        <a href="#" class="btn btn-default">Button 1</a>
-                    </p>
-                </div>
+        <div class="container">
+            <div class="nav-logo"><img src="assets/images/log.png"></div>
+            <div class=" visible-lg-inline-block visible-md-inline-block visible-sm-inline-block visible-xs-block nav-col ">
+                <!-- <button class="btn btn-primary btn-log-in  button-log-in "> Зареєструватися</button> -->
+                <button class="btn btn-success btn-log-in  button-log-in "> Увійти</button>
+            </div>
+            <div class=" visible-lg-inline-block hidden-md hidden-sm hidden-xs  nav-col" style="font-size: small"> Суші
+                для тих, хто нікого не
+                їсть
+            </div>
+            <div class=" visible-lg-inline-block visible-md-inline-block hidden-sm hidden-xs nav-col"> 24 години 7 днів
+                на тиждень
+            </div>
+            <div class=" visible-lg-inline-block visible-md-inline-block visible-sm-inline-block visible-xs-block nav-col nav-phone-num">
+                (044) 222 5 222
             </div>
         </div>
 
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_2.jpg">
+    </div>
+</div>
 
-                <div class="caption"><h3>Thumbnail label</h3>
+<div class="content">
+    <div class="navigation-almost container" role="main">
+        <div class="sales-window">
+            <img src="assets/images/stickers.png">
+            <span class="sale-text">  Цього тижня <br> знижка <h3> 20% </h3> </span>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 3</a>
-                        <a href="#" class="btn btn-default">Button 4</a>
-                    </p>
-                </div>
-            </div>
         </div>
+        <div class="nav-title">
+            <h3> Усі наші кулінарні шедеври <span class="label label-success"> 3 </span></h3></div>
 
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_3.jpg">
+        <ul clas="nav-labels">
 
-                <div class="caption"><h3>Thumbnail label</h3>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+            <li class="nav-item li-in-active"><a href="#"> Усі </a></li>
+            <li class="nav-item"><a href="#"> З огірком </a></li>
+            <li class="nav-item"><a href="#"> З авокадо </a></li>
+            <li class="nav-item"><a href="#"> З грибами </a></li>
+            <li class="nav-item"><a href="#"> З помідором </a></li>
+            <li class="nav-item"><a href="#"> Салати </a></li>
 
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 5</a>
-                        <a href="#" class="btn btn-default">Button 6</a>
-                    </p>
+        </ul>
+
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4 suchi-card">
+                <div class="thumbnail ">
+                    <img src="assets/images/sushi-1.jpg">
+                    <h3 class="label-angle label-new"><span class="label label-danger"> New  </span></h3>
+                    <p class="caption">
+                    <h2 class="main-name-of-product">Дассай
+                        <div class="main-second-name"> дари лісів</div>
+                    </h2>
+                    <div class="description">Ролл "Дасай" ( шампиньоны жарен., авокадо, огурец, лист
+                        салата, майонез, укроп)
+                        Имбирь - 20 гр.
+                        Васаби - 3 гр.
+                        Соевый соус - 20 мл.
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 middle-portion">
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> 30 </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion">360</span>
+                            </span>
+
+                            <h3 class="price-of-portion"> 480
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                        </div>
+
+                        <div class="col-md-6 big-portion">
+
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> 40 </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion">840</span>
+                            </span>
+
+                            <h3 class="price-of-portion"> 480
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+            <div class="col-sm-6 col-md-4 suchi-card">
+                <div class="thumbnail ">
+                    <img src="assets/images/sushi-1.jpg">
+                    <h3 class="label-angle label-new"><span class="label label-info"> Popular  </span></h3>
+                    <p class="caption">
+                    <h2 class="main-name-of-product">Дассай
+                        <div class="main-second-name"> дари лісів</div>
+                    </h2>
+                    <div class="description">Ролл "Дасай" ( шампиньоны жарен.,авокадо,огурец,лист
+                        салата,майонез,укроп)
+                        Имбирь - 20 гр.
+                        Васаби - 3 гр.
+                        Соевый соус - 20 мл.
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 middle-portion">
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> 30 </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion">360</span>
+                            </span>
+
+                            <h3 class="price-of-portion"> 480
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                        </div>
+
+                        <div class="col-md-6 big-portion">
+
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> 40 </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion">840</span>
+                            </span>
+
+                            <h3 class="price-of-portion"> 480
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-4 suchi-card">
+                <div class="thumbnail ">
+                    <img src="assets/images/sushi-1.jpg">
+                    <p class="caption">
+                    <h2 class="main-name-of-product">Дассай
+                        <div class="main-second-name"> дари лісів</div>
+                    </h2>
+                    <div class="description">Ролл "Дасай" ( шампиньоны жарен.,авокадо,огурец,лист
+                        салата,майонез,укроп)
+                        Имбирь - 20 гр.
+                        Васаби - 3 гр.
+                        Соевый соус - 20 мл.
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 middle-portion">
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> 30 </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion">360</span>
+                            </span>
+
+                            <h3 class="price-of-portion"> 480
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                        </div>
+
+                        <div class="col-md-6 big-portion">
+
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> 40 </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion">840</span>
+                            </span>
+
+                            <h3 class="price-of-portion"> 480
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
 
+
+<div class="section">
+    <div class="section-title">
+        <h4> Замовлення <span class="label label-success number-of-product-order"> 0 </span> <span class="clean-order"> Очистити замовлення </span>
+        </h4>
+
+    </div>
+    <div class="list-of-products-order">
+        <div class="section-one-product">
+
+            <div class="section-info-product">
+                <img class="info-img" src="assets/images/sushi-1.jpg" />
+                <div class="section-info-name-of-product">Name</div>
+                <div class="section-info-size-and-weight">
+                <span class="size-of-portion-almost">
+                    <img src="assets/images/size-icon.svg">
+                    <span class="size-of-portion"> 30 </span>
+                </span>
+
+                <span class="weight-of-portion-almost">
+                    <img src="assets/images/weight.svg">
+                    <span class="weight-of-portion">360</span>
+                </span>
+                </div>
+                <div class="section-info-buttons">
+                    <span class="section-info-prize-of-product"> 350grn </span>
+                    <span class="section-info-button-minus"> <button class="btn btn-danger info-minus"> -
+                    </button> </span>
+                    <span class="section-info-number-of-products"> 2 </span>
+                    <span class="section-info-button-plus"> <button class="btn btn-success info-plus">+</button> </span>
+                    <span class="section-info-button-delete"> <button class="btn info-delete"> &#215</button> </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="section-result">
+        <div> Сумма замовлення:</div>
+        <div class="sum-order"><span class="sum-order-number"> 0 </span> грн</div>
+        <span> <button class="btn btn-success btn-lg"> Замовити</button> </span>
+
+    </div>
+
+</div>
+</div>
+</div>
+
+
+<!--<div class="section">
+    <div class="section-title">
+        <h4> Замовлення <span class="nav-number-circle-pizza"> 2 </span></h4>
+        <span class="clean-list"> Очистити замовлення </span>
+    </div>
+</div>
+<div class="list-of-pizzas">
+    <div class="">
+    </div>
+</div> -->
+<div class="container-fluid footer">
+
+    <div>
+        <p>Практичний проект в межах курсу JavaScript в Києво-Могилянській Академії <br> На жаль, поки доставка не
+            здійснюється </p>
+
+        <p>©Ми турбуємоя про вашу карму, копіювання заборонене. </p>
+    </div>
+</div>
+
+
 <!-- jQuery JavaScript -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 <!--Bootsrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!--Own JavaScript -->
-<script type="text/javascript"  src="assets/js/main.js"> </script>
+<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>

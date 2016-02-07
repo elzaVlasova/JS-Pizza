@@ -1,3 +1,295 @@
-@mainColor: blue;
+@mainColor: #2f8044;
+@secondColor: #d2cfcf;
 
-@import "pizza/pizza-card";
+@cardHeight: 560px;
+@headerHeight: 70px;
+@circleButton: 10px;
+@navigationHeight: 30px;
+@sectionWidth: 300px;
+@infoImg: 80px;
+
+@descriptionPercent: 20%;
+
+@salePosition: 15px;
+@saleWidth: 160px;
+
+@import "pizza/suchi-card";
+
+.header {
+  height: @headerHeight;
+  text-align: center;
+  padding-top: @headerHeight/5;
+}
+
+@media (max-width: 400px) {
+  .header {
+    height: 1.1*@headerHeight;
+  }
+}
+
+.nav-logo {
+  display: block;
+  float: left;
+  position: fixed;
+  z-index: 10;
+
+  img {
+    float: left;
+    vertical-align: text-top;
+    position: absolute;
+    top: -15px;
+    left: -75px;
+  }
+}
+
+.nav-col {
+  float: right;
+  display: block;
+  width: 20%;
+  color: @secondColor;
+  font-size: medium;
+}
+
+@media (max-width: 355px){
+.nav-phone-num{
+  font-size: small;
+  margin-right: 15px;
+}
+}
+
+.button-log-in {
+  float: right;
+
+  button {
+    width: inherit;
+  }
+}
+
+.navigation-almost {
+  margin-top: 1.1*@headerHeight;
+  padding-right: 0.7*@sectionWidth;
+  text-align: center;
+
+}
+
+@media (max-width: 600px) {
+  .navigation-almost{
+    margin-top: 1.5*@headerHeight;
+  }
+}
+
+.navItemBuilder(@textColor, @backColor) {
+  display: inline;
+  padding: 5px;
+  margin: 3px;
+
+  height: @navigationHeight;
+  background-color: @backColor;
+  border-radius: 8%;
+  a {
+    color: @textColor;
+    font-weight: 300;
+  }
+}
+
+.nav-title {
+  padding: 5px;
+}
+
+.nav-item {
+  .navItemBuilder(@mainColor, white);
+}
+
+.li-in-active {
+  .navItemBuilder(white, @mainColor);
+}
+
+.label {
+  border-radius: 80%;
+}
+
+.suchi-card .thumbnail {
+  height: @cardHeight;
+}
+
+@media (max-width: 980px) {
+  .suchi-card .thumbnail {
+    height: 1.4*@cardHeight;
+  }
+}
+
+@media (max-width: 400px) {
+  .suchi-card .thumbnail {
+    height: 1.5*@cardHeight;
+    width: 200px;
+  }
+}
+
+
+
+// чесно не знала як зробити, і .section взяла у вас
+.section {
+  width: @sectionWidth;
+  float: right;
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: @headerHeight;
+  margin-left: 20px;
+  padding: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  box-orient: vertical;
+  flex-direction: column;
+  min-width: 150px;
+  height: 100%;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, .2) -1px 1px 2px;
+  z-index: 1000;
+  background-color: @secondColor;
+}
+
+@media (max-width: 980px) {
+  .section {
+    width: 0.7*@sectionWidth;
+  }
+}
+
+@media (max-width: 400px) {
+  .section {
+    width: 0.6*@sectionWidth;
+  }
+}
+
+.section-title {
+  background-color: white;
+  height: @headerHeight;
+  border-bottom: 1px solid @secondColor;
+
+  .clean-order {
+    display: inline;
+    float: right;
+    color: @secondColor;
+    font-size: x-small;
+  }
+}
+
+.section-info-product {
+  padding: 5px;
+
+  .info-img {
+    max-width: @infoImg;
+    position: absolute;
+    right: 0.125*@infoImg;
+  }
+
+  /*@media (max-width: 980px) {
+    .info-img {
+      right: -0.5*@infoImg;
+    }
+  }*/
+
+  @media (max-width: 980px){
+    .info-img {
+      right: -@infoImg;
+    }
+  }
+
+  .section-info-name-of-product {
+    color: @mainColor;
+    font-size: medium;
+  }
+
+  .section-info-prize-of-product {
+    font-weight: 600;
+  }
+  .btn {
+    border-radius: 80%;
+    font-weight: 600;
+  }
+
+  .info-delete {
+    background-color: whitesmoke;
+    color: black;
+  }
+
+}
+
+.section-result {
+  background-color: white;
+  padding-right: 20px;
+  text-align: center;
+  width: inherit;
+  height: 2*@headerHeight;
+  position: absolute;
+  bottom: @headerHeight/2;
+  border-top: 1px solid @secondColor;
+
+  div {
+    display: inline;
+    float: left;
+    font-weight: 600;
+  }
+
+  .sum-order {
+    float: right;
+  }
+
+  @media (max-width: 300px){
+    font-size: smaller;
+  }
+}
+
+.footer {
+  clear: both;
+  text-align: center;
+  padding: 17px 0;
+  border-top: 1px solid @secondColor;
+  background-color: @secondColor;
+  color: #808080;
+  padding-right: 0.7*@sectionWidth;
+}
+
+
+
+
+
+.sales-window {
+  position: fixed;
+  bottom: @salePosition;
+  left: @salePosition;
+  z-index: 10;
+  text-align: center;
+
+  img {
+    max-width: @saleWidth;
+  }
+
+  .sale-text {
+    position: absolute;
+    bottom: @salePosition+@saleWidth/20;
+    left: @salePosition+@saleWidth/6;
+
+    color: white;
+    font-weight: 500;
+    z-index: 12;
+  }
+
+  /*@media(max-width:400px){
+    img{
+      max-width: 0.5*@saleWidth;
+    }
+    .sale-text{
+      font-size: smaller;
+    }
+  }*/
+
+}

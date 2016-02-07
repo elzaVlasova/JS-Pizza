@@ -1,0 +1,44 @@
+.suchi-card {
+padding:10px;
+
+
+  img {
+    max-width: 200px;
+  }
+
+  .label-angle {
+    position: absolute;
+    top: -@circleButton;
+    right: 0;
+  }
+
+  h2 {
+    color: @mainColor;
+    font-weight: 400;
+  }
+
+  .main-second-name{
+    color: @secondColor;
+    font-size: small;
+  }
+
+  .currence{
+    font-size: small;
+  }
+
+  .description{
+    height: @descriptionPercent;
+    padding:5px;
+  }
+
+  media(max-width: 300px){
+  .description{
+    height: 2*@descriptionPercent;
+  }
+}
+
+  .button-big-portion{
+    display:inline-block;
+    float: right;
+  }
+}
