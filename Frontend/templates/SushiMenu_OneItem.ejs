@@ -1,0 +1,87 @@
+<%
+
+function getIngredientsArray(pizza) {
+    //Отримує вміст піци
+    var content = pizza.content;
+    var result = [];
+
+    //Object.keys повертає масив ключів в об’єкті JavaScript
+
+    Object.keys(content).forEach(function(key){
+
+        //a.concat(b) створює спільний масив із масивів a та b
+        result = result.concat(content[key]);
+    });
+
+    return result;
+}
+
+   %>
+
+ <div class="col-sm-6 col-md-4 sushi-card">
+                <div class="thumbnail ">
+                    <img src="<%= pizza.icon %>">
+
+
+                     <% if(pizza.is_new) { %>
+                             <h3 class="label-angle label-new"><span class="label label-danger"> New  </span></h3>
+                            <% } else if(pizza.is_popular) {%>
+                            <h3 class="label-angle label-popular"><span class="label label-info"> Popular  </span></h3>
+                            <% } %>
+
+
+                    <p class="caption">
+                    <h2 class="main-name-of-product"><%= pizza.title %>
+                        <div class="main-second-name" style=" color: grey; font-size: small;"> <%=pizza.type %></div>
+                    </h2>
+                    <div class="description"><%= getIngredientsArray(pizza).join(", ") %>
+                    </div>
+                    <div class="row">
+<% if(pizza.big_size) { %>
+                        <div class="col-md-6 middle-portion">
+                        <%} else { %>
+                        <div class="col-md-12 middle-portion">
+                         <% } %>
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"> <%= pizza.small_size.size %> </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                                <span class="weight-of-portion"><%= pizza.small_size.weight %></span>
+                            </span>
+
+                            <h3 class="price-of-portion"> <%= pizza.small_size.price %>
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success buy-small-portion">Купити</a>
+                        </div>
+<% if(pizza.big_size) { %>
+                        <div class="col-md-6 big-portion">
+
+                            <span class="size-of-portion-almost">
+                                <img src="assets/images/size-icon.svg">
+                                <span class="size-of-portion"><span class="size-of-portion"> <%= pizza.big_size.size %>
+ </span>
+                            </span>
+
+                            <span class="weight-of-portion-almost">
+                                <img src="assets/images/weight.svg">
+                            <span class="weight-of-portion"> <%= pizza.big_size.weight %>
+                            </span>
+
+                            <h3 class="price-of-portion"> <h3 class="price-of-portion"> <%= pizza.big_size.price %>
+
+                                <div class="currence"> грн</div>
+                            </h3>
+
+                            <a href="#" class="btn btn-success buy-big-portion">Купити</a>
+                        </div>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+

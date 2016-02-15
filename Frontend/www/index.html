@@ -55,17 +55,18 @@
 
 
             <li class="nav-item li-in-active"><a href="#"> Усі </a></li>
-            <li class="nav-item"><a href="#"> З огірком </a></li>
-            <li class="nav-item"><a href="#"> З авокадо </a></li>
-            <li class="nav-item"><a href="#"> З грибами </a></li>
-            <li class="nav-item"><a href="#"> З помідором </a></li>
-            <li class="nav-item"><a href="#"> Салати </a></li>
+            <li class="nav-item" id="vegetables"><a href="#"> З овочами </a></li>
+            <li class="nav-item" id="avocado"><a href="#"> З авокадо </a></li>
+            <li class="nav-item" id="mushrooms"><a href="#"> З грибами </a></li>
+            <li class="nav-item" id="greenery"><a href="#"> З зеленню </a></li>
+            <li class="nav-item" id="additional"><a href="#"> З додатками </a></li>
 
         </ul>
 
 
-        <div class="row">
-            <div class="col-sm-6 col-md-4 suchi-card">
+        <div class="row" id="sushi_list">
+            <!--
+            <div class="col-sm-6 col-md-4 sushi-card">
                 <div class="thumbnail ">
                     <img src="assets/images/sushi-1.jpg">
                     <h3 class="label-angle label-new"><span class="label label-danger"> New  </span></h3>
@@ -96,7 +97,7 @@
                                 <div class="currence"> грн</div>
                             </h3>
 
-                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                            <a href="#" class="btn btn-success buy-small-portion">Купити</a>
                         </div>
 
                         <div class="col-md-6 big-portion">
@@ -115,17 +116,17 @@
                                 <div class="currence"> грн</div>
                             </h3>
 
-                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                            <a href="#" class="btn btn-success buy-big-portion">Купити</a>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="col-sm-6 col-md-4 suchi-card">
+            <div class="col-sm-6 col-md-4 sushi-card">
                 <div class="thumbnail ">
                     <img src="assets/images/sushi-1.jpg">
-                    <h3 class="label-angle label-new"><span class="label label-info"> Popular  </span></h3>
+                    <h3 class="label-angle label-popular"><span class="label label-info"> Popular  </span></h3>
                     <p class="caption">
                     <h2 class="main-name-of-product">Дассай
                         <div class="main-second-name"> дари лісів</div>
@@ -153,7 +154,7 @@
                                 <div class="currence"> грн</div>
                             </h3>
 
-                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                            <a href="#" class="btn btn-success buy-small-portion">Купити</a>
                         </div>
 
                         <div class="col-md-6 big-portion">
@@ -172,14 +173,14 @@
                                 <div class="currence"> грн</div>
                             </h3>
 
-                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                            <a href="#" class="btn btn-success buy-small-portion">Купити</a>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="col-sm-6 col-md-4 suchi-card">
+            <div class="col-sm-6 col-md-4 sushi-card">
                 <div class="thumbnail ">
                     <img src="assets/images/sushi-1.jpg">
                     <p class="caption">
@@ -209,7 +210,7 @@
                                 <div class="currence"> грн</div>
                             </h3>
 
-                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                            <a href="#" class="btn btn-success buy-small-portion">Купити</a>
                         </div>
 
                         <div class="col-md-6 big-portion">
@@ -228,12 +229,12 @@
                                 <div class="currence"> грн</div>
                             </h3>
 
-                            <a href="#" class="btn btn-success button-small-portion">Купити</a>
+                            <a href="#" class="btn btn-success buy-small-portion">Купити</a>
                         </div>
                     </div>
                 </div>
             </div>
-
+-->
         </div>
     </div>
 </div>
@@ -245,7 +246,7 @@
         </h4>
 
     </div>
-    <div class="list-of-products-order">
+    <div class="list-of-products-order" id="cart">
         <div class="section-one-product">
 
             <div class="section-info-product">
@@ -274,6 +275,8 @@
 
         </div>
 
+
+
     </div>
     <div class="section-result">
         <div> Сумма замовлення:</div>
@@ -287,16 +290,6 @@
 </div>
 
 
-<!--<div class="section">
-    <div class="section-title">
-        <h4> Замовлення <span class="nav-number-circle-pizza"> 2 </span></h4>
-        <span class="clean-list"> Очистити замовлення </span>
-    </div>
-</div>
-<div class="list-of-pizzas">
-    <div class="">
-    </div>
-</div> -->
 <div class="container-fluid footer">
 
     <div>

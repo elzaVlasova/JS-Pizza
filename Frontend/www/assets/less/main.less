@@ -5,7 +5,7 @@
 @headerHeight: 70px;
 @circleButton: 10px;
 @navigationHeight: 30px;
-@sectionWidth: 300px;
+@sectionWidth: 310px;
 @infoImg: 80px;
 
 @descriptionPercent: 20%;
@@ -92,6 +92,13 @@
   }
 }
 
+.label-angle {
+  position: absolute;
+  top: -2*@circleButton;
+  right: 0;
+}
+
+
 .nav-title {
   padding: 5px;
 }
@@ -169,6 +176,8 @@
   }
 }
 
+
+
 .section-title {
   background-color: white;
   height: @headerHeight;
@@ -182,13 +191,20 @@
   }
 }
 
+.list-of-products-order{
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom:4*@headerHeight;
+}
+
 .section-info-product {
   padding: 5px;
+  border-bottom:1px solid gainsboro;
 
   .info-img {
     max-width: @infoImg;
     position: absolute;
-    right: 0.125*@infoImg;
+    right: 0.125*@infoImg+10;
   }
 
   /*@media (max-width: 980px) {
@@ -246,6 +262,12 @@
   @media (max-width: 300px){
     font-size: smaller;
   }
+
+  text-align: center;
+
+  .btn-lg{
+    margin: 20px;
+  }
 }
 
 .footer {
@@ -281,6 +303,11 @@
     color: white;
     font-weight: 500;
     z-index: 12;
+  }
+
+  .main-second-name{
+    color: @secondColor;
+    font-size: small;
   }
 
   /*@media(max-width:400px){

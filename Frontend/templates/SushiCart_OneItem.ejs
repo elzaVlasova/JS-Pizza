@@ -1,0 +1,25 @@
+
+
+<div class="section-info-product">
+
+    <div class="section-info-name-of-product"> <%= pizza.title %>(<%= size %>)</div>
+    <div class="section-info-size-and-weight">
+                <span class="size-of-portion-almost">
+                    <img src="assets/images/size-icon.svg">
+                    <span class="size-of-portion"> 30 </span>
+                </span>
+
+                <span class="weight-of-portion-almost">
+                    <img src="assets/images/weight.svg">
+                    <span class="weight-of-portion">360</span>
+                </span>
+    </div>
+    <div class="section-info-buttons">
+        <span class="section-info-prize-of-product">  <%= pizza[size].price %> грн </span>
+                    <span class="section-info-button-minus"> <button class="btn btn-danger info-minus"> -
+                        </button> </span>
+        <span class="section-info-number-of-products"> <%= quantity %> </span>
+        <span class="section-info-button-plus"> <button class="btn btn-success info-plus">+</button> </span>
+        <span class="section-info-button-delete"> <button class="btn info-delete"> &#215</button> </span>
+    </div>
+</div>
