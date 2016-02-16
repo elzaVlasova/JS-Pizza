@@ -209,7 +209,8 @@ var pizza_info = [
             price: 169
         },
         is_new:true,
-        is_popular:true
+        is_popular:true,
+        is_bought: false
 
     },
     {
@@ -387,15 +388,27 @@ var $cart = $("#cart");
 var $section = $(".section");
 
 
-
 function addToCart(pizza, size) {
 
+var isInCart=false;
+
+for(var i=0; i<Cart.length; i++){
+if(Cart[i].pizza==pizza && Cart[i].size==size){
+console.log(Cart[i].quantity);
+Cart[i].quantity++;
+
+var isInCart=true;
+console.log("Is in Cart");
+}}
+if(!isInCart){
     Cart.push({
         pizza: pizza,
         size: size,
         quantity: 1
     });
+    }
 
+console.log("Update card or not"+ Cart.length);
     updateCart();
 }
 
@@ -405,10 +418,11 @@ function removeFromCart(cart_item) {
     for (var i=0; i<Cart.length; i++){
         if(Cart[i]==cart_item.pizza){
             Cart[i].splice();
+            console.log('I try to remove you. Sorry, my dear sushi')
         }
 
             }
-    updateCart();
+    //updateCart();
 }
 
 function updateCart() {
@@ -448,13 +462,30 @@ function updateCart() {
                                     console.log('null remove sushi');
                                     console.log(Cart);
                                     $node.remove();
-                                                        }
+                                    console.log(cart_item.quantity);}
 
-                                  $node.find(".info-delete").click(function(){
+        $node.find(".info-delete").click(function(){
                                   //Видаляемо суші із списку покупок
                                   console.log('remove');
                                   $node.remove();
-                                       });
+                                   cart_item.quantity=0;
+                                   console.log(cart_item.quantity);});
+
+        $section.find(".clean-order").click(function(){
+        console.log('clean order');
+        $cart.html("");
+        console.log(Cart.length);
+        Cart.splice(0,Cart.length);
+        console.log(Cart.length);
+        });
+
+        $section.find(".number-of-product-order").text(Cart.length);
+
+        var sumOrder=0;
+
+
+
+        $section.find(".sum-order-number").text('12');
 
     }
     Cart.forEach(showOnePizzaInCart);
@@ -494,6 +525,7 @@ var SushiCart = require('./SushiCart');
 var Sushi_List = require('../Sushi_List');
 
 var $sushi_list = $("#sushi_list");
+//var Cart = getPizzaInCart();
 
 function showSushiList(list){
     $sushi_list.html("");

@@ -4,7 +4,7 @@ var SushiCart = require('./SushiCart');
 var Sushi_List = require('../Sushi_List');
 
 var $sushi_list = $("#sushi_list");
-var Cart = getPizzaInCart();
+//var Cart = getPizzaInCart();
 
 function showSushiList(list){
     $sushi_list.html("");
