@@ -1,5 +1,25 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
+ * Created by 112 on 17.02.2016.
+ */
+
+function initialize() {
+    //Тут починаємо працювати з картою
+
+    var mapProp = {
+        center: new google.maps.LatLng(50.464379,30.519131),
+        zoom: 11
+    };
+    var html_element = document.getElementById("googleMap");
+    var map = new google.maps.Map(html_element, mapProp);
+    //Карта створена і показана
+}
+
+//Коли сторінка завантажилась
+google.maps.event.addDomListener(window, 'load', initialize);
+
+},{}],2:[function(require,module,exports){
+/**
  * Created by diana on 12.01.16.
  */
 
@@ -176,7 +196,7 @@ var pizza_info = [
 ];
 
 module.exports = pizza_info;
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 var basil	=	require('basil.js');
 basil	=	new	basil();
 exports.get =	function(key)	{
@@ -185,7 +205,7 @@ exports.get =	function(key)	{
 exports.set =	function(key,	value)	{
     return	basil.set(key,	value);
 };
-},{"basil.js":8}],3:[function(require,module,exports){
+},{"basil.js":9}],4:[function(require,module,exports){
 var pizza_info = [
     {
         id:1,
@@ -326,7 +346,7 @@ var pizza_info = [
 ];
 
 module.exports = pizza_info;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
  */
@@ -341,28 +361,28 @@ exports.PizzaCart_OneItem = ejs.compile("<div>\n    <%= pizza.title %> (<%= size
 
 exports.SushiMenu_OneItem = ejs.compile("<%\r\n\r\nfunction getIngredientsArray(pizza) {\r\n    //Отримує вміст піци\r\n    var content = pizza.content;\r\n    var result = [];\r\n\r\n    //Object.keys повертає масив ключів в об’єкті JavaScript\r\n\r\n    Object.keys(content).forEach(function(key){\r\n\r\n        //a.concat(b) створює спільний масив із масивів a та b\r\n        result = result.concat(content[key]);\r\n    });\r\n\r\n    return result;\r\n}\r\n\r\n   %>\r\n\r\n <div class=\"col-sm-6 col-md-4 sushi-card\">\r\n                <div class=\"thumbnail \">\r\n                    <img src=\"<%= pizza.icon %>\">\r\n\r\n\r\n                     <% if(pizza.is_new) { %>\r\n                             <h3 class=\"label-angle label-new\"><span class=\"label label-danger\"> New  </span></h3>\r\n                            <% } else if(pizza.is_popular) {%>\r\n                            <h3 class=\"label-angle label-popular\"><span class=\"label label-info\"> Popular  </span></h3>\r\n                            <% } %>\r\n\r\n\r\n                    <p class=\"caption\">\r\n                    <h2 class=\"main-name-of-product\"><%= pizza.title %>\r\n                        <div class=\"main-second-name\" style=\" color: grey; font-size: small;\"> <%=pizza.type %></div>\r\n                    </h2>\r\n                    <div class=\"description\"><%= getIngredientsArray(pizza).join(\", \") %>\r\n                    </div>\r\n                    <div class=\"row\">\r\n<% if(pizza.big_size) { %>\r\n                        <div class=\"col-md-6 middle-portion\">\r\n                        <%} else { %>\r\n                        <div class=\"col-md-12 middle-portion\">\r\n                         <% } %>\r\n                            <span class=\"size-of-portion-almost\">\r\n                                <img src=\"assets/images/size-icon.svg\">\r\n                                <span class=\"size-of-portion\"> <%= pizza.small_size.size %> </span>\r\n                            </span>\r\n\r\n                            <span class=\"weight-of-portion-almost\">\r\n                                <img src=\"assets/images/weight.svg\">\r\n                                <span class=\"weight-of-portion\"><%= pizza.small_size.weight %></span>\r\n                            </span>\r\n\r\n                            <h3 class=\"price-of-portion\"> <%= pizza.small_size.price %>\r\n                                <div class=\"currence\"> грн</div>\r\n                            </h3>\r\n\r\n                            <a href=\"#\" class=\"btn btn-success buy-small-portion\">Купити</a>\r\n                        </div>\r\n<% if(pizza.big_size) { %>\r\n                        <div class=\"col-md-6 big-portion\">\r\n\r\n                            <span class=\"size-of-portion-almost\">\r\n                                <img src=\"assets/images/size-icon.svg\">\r\n                                <span class=\"size-of-portion\"><span class=\"size-of-portion\"> <%= pizza.big_size.size %>\r\n </span>\r\n                            </span>\r\n\r\n                            <span class=\"weight-of-portion-almost\">\r\n                                <img src=\"assets/images/weight.svg\">\r\n                            <span class=\"weight-of-portion\"> <%= pizza.big_size.weight %>\r\n                            </span>\r\n\r\n                            <h3 class=\"price-of-portion\"> <h3 class=\"price-of-portion\"> <%= pizza.big_size.price %>\r\n\r\n                                <div class=\"currence\"> грн</div>\r\n                            </h3>\r\n\r\n                            <a href=\"#\" class=\"btn btn-success buy-big-portion\">Купити</a>\r\n                        </div>\r\n                        <% } %>\r\n\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n");
 exports.SushiCart_OneItem = ejs.compile("\r\n\r\n<div class=\"section-info-product\">\r\n\r\n    <div class=\"section-info-name-of-product\"> <%= pizza.title %>(<%= size %>)</div>\r\n    <div class=\"section-info-size-and-weight\">\r\n                <span class=\"size-of-portion-almost\">\r\n                    <img src=\"assets/images/size-icon.svg\">\r\n                    <span class=\"size-of-portion\"> 30 </span>\r\n                </span>\r\n\r\n                <span class=\"weight-of-portion-almost\">\r\n                    <img src=\"assets/images/weight.svg\">\r\n                    <span class=\"weight-of-portion\">360</span>\r\n                </span>\r\n    </div>\r\n    <div class=\"section-info-buttons\">\r\n        <span class=\"section-info-prize-of-product\">  <%= pizza[size].price %> грн </span>\r\n                    <span class=\"section-info-button-minus\"> <button class=\"btn btn-danger info-minus\"> -\r\n                        </button> </span>\r\n        <span class=\"section-info-number-of-products\"> <%= quantity %> </span>\r\n        <span class=\"section-info-button-plus\"> <button class=\"btn btn-success info-plus\">+</button> </span>\r\n        <span class=\"section-info-button-delete\"> <button class=\"btn info-delete\"> &#215</button> </span>\r\n    </div>\r\n</div>");
-},{"ejs":9}],5:[function(require,module,exports){
+},{"ejs":10}],6:[function(require,module,exports){
 /**
  * Created by chaika on 25.01.16.
  */
 
-$(function(){
+$(function () {
     //This code will execute when the page is ready
     var PizzaMenu = require('./pizza/SushiMenu');
-    var PizzaCart = require('./pizza/SushiCart');
+    var PizzaCart = require('./pizza/SushiCart2');
 
 
     /*varAPI = require('./API');
 
-    API.getPizzaList(function(err, pizza_list){
-        if(err){
-            return console.error(err);
-        }
+     API.getPizzaList(function(err, pizza_list){
+     if(err){
+     return console.error(err);
+     }
 
-        console.log("Pizza List", pizza_list);
-        //PizzaCart.initialisecar
-        //
-    });*/
+     console.log("Pizza List", pizza_list);
+     //PizzaCart.initialisecar
+     //
+     });*/
 
     var Pizza_List = require('./Pizza_List');
 
@@ -370,8 +390,38 @@ $(function(){
     PizzaMenu.initialiseMenu();
 
 
+    require('./GoogleMap');
 });
-},{"./Pizza_List":1,"./pizza/SushiCart":6,"./pizza/SushiMenu":7}],6:[function(require,module,exports){
+
+
+$('#oneButton').click(function () {
+    API.createOrder({
+        name: "name",
+        phone: "ph",
+        pizza: PizzaCart.getPizzaInCart()
+    }, function (err, result) {
+        if (err) {
+            alert('Cant create order');
+        }
+        else {
+            LiqPayCheckout.init({
+                data: "Дані...",
+                signature: result.signature,
+                embedTo: "#liqpay",
+                mode: "popup" // embed || popup
+            }).on("liqpay.callback", function (data) {
+                console.log(data.status);
+                console.log(data);
+            }).on("liqpay.ready", function (data) {
+                // ready
+            }).on("liqpay.close", function (data) {
+                // close
+            });
+
+        }}) ;})
+
+
+},{"./GoogleMap":1,"./Pizza_List":2,"./pizza/SushiCart2":7,"./pizza/SushiMenu":8}],7:[function(require,module,exports){
 /**
  * Created by 112 on 13.02.2016.
  */
@@ -386,42 +436,46 @@ var SushiSize = {
 var Cart = [];
 var $cart = $("#cart");
 var $section = $(".section");
-
+var sumOrder = 0;
 
 function addToCart(pizza, size) {
 
-var isInCart=false;
+    var isInCart = false;
 
-for(var i=0; i<Cart.length; i++){
-if(Cart[i].pizza==pizza && Cart[i].size==size){
-console.log(Cart[i].quantity);
-Cart[i].quantity++;
+    for (var i = 0; i < Cart.length; i++) {
+        if (Cart[i].pizza == pizza && Cart[i].size == size) {
+            console.log(Cart[i].quantity);
+            Cart[i].quantity++;
 
-var isInCart=true;
-console.log("Is in Cart");
-}}
-if(!isInCart){
-    Cart.push({
-        pizza: pizza,
-        size: size,
-        quantity: 1
-    });
+            var isInCart = true;
+            console.log("Is in Cart");
+        }
+    }
+    if (!isInCart) {
+        Cart.push({
+            pizza: pizza,
+            size: size,
+            quantity: 1,
+            price: pizza[size].price
+        });
     }
 
-console.log("Update card or not"+ Cart.length);
+    sumOrder += Cart[Cart.length - 1].price;
+
+    console.log("Price" + sumOrder);
     updateCart();
 }
 
 
 function removeFromCart(cart_item) {
 
-    for (var i=0; i<Cart.length; i++){
-        if(Cart[i]==cart_item.pizza){
-            Cart[i].splice();
+    for (var i = 0; i < Cart.length; i++) {
+        if (Cart[i].pizza == cart_item.pizza) {
+            Cart.splice(i, 1);
             console.log('I try to remove you. Sorry, my dear sushi')
         }
 
-            }
+    }
     //updateCart();
 }
 
@@ -438,70 +492,99 @@ function updateCart() {
 
         var $node = $(html_code);
 
+
         $node.find(".info-plus").click(function () {
             //Збільшуємо кількість замовлених піц
             cart_item.quantity += 1;
             console.log('plus');
+            sumOrder += cart_item.price;
             //Оновлюємо відображення
             updateCart();
         });
 
         $node.find(".info-minus").click(function () {
-                    //Зменшуємо кількість замовлених піц
-                     cart_item.quantity -= 1;
-                    console.log('minus'+cart_item.quantity);
+            //Зменшуємо кількість замовлених піц
+            cart_item.quantity -= 1;
+            console.log('minus' + cart_item.quantity);
+             sumOrder -= cart_item.price;
 
-                    //Оновлюємо відображення
-                    updateCart();
-                });
+            //Оновлюємо відображення
+            updateCart();
+        });
 
 
         $cart.append($node);
 
-        if(cart_item.quantity==0){
-                                    console.log('null remove sushi');
-                                    console.log(Cart);
-                                    $node.remove();
-                                    console.log(cart_item.quantity);}
+        if (cart_item.quantity == 0) {
+            console.log('null remove sushi');
+            console.log(Cart);
+            $node.remove();
+            console.log(cart_item.quantity);
+            removeFromCart(cart_item);
+        }
 
-        $node.find(".info-delete").click(function(){
-                                  //Видаляемо суші із списку покупок
-                                  console.log('remove');
-                                  $node.remove();
-                                   cart_item.quantity=0;
-                                   console.log(cart_item.quantity);});
+        $node.find(".info-delete").click(function () {
+            //Видаляемо суші із списку покупок
+            console.log("SumOrder = " + sumOrder + "Quantity = " + cart_item.quantity + "Price = " + cart_item.price);
+            console.log('remove ' + "Sum of this sushi " + cart_item.quantity * cart_item.price);
+            //  sumOrder = sumOrder - (cart_item.size*cart_item.price);
 
-        $section.find(".clean-order").click(function(){
-        console.log('clean order');
-        $cart.html("");
-        console.log(Cart.length);
-        Cart.splice(0,Cart.length);
-        console.log(Cart.length);
+
+                for (var j=1; j<=cart_item.quantity; j++){
+                sumOrder-=cart_item.price;}
+
+            console.log("SumOrder = " + sumOrder);
+            $section.find(".sum-order-number").text(sumOrder);
+            $node.remove();
+
+
+            cart_item.quantity = 0;
+            removeFromCart(cart_item);
+            console.log("Quantity " + cart_item.quantity);
+
+            updateCart();
         });
 
-        $section.find(".number-of-product-order").text(Cart.length);
 
-        var sumOrder=0;
-
-
-
-        $section.find(".sum-order-number").text('12');
 
     }
+
+    $section.find(".sum-order-number").text(sumOrder);
+
+
     Cart.forEach(showOnePizzaInCart);
+    $section.find(".number-of-product-order").html(Cart.length);
+    console.log($section.find(".number-of-product-order"));
+    console.log(Cart.length);
     Storage.set("cart", Cart); // записуємо значення замовлених піц
+    Storage.set("sumOrder", sumOrder);
 
 }
 
 function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
-/*var saved_pizza = Storage.get("cart");
-    if (saved_pizza){
-        Cart=saved_pizza;
-    }*/
+    var saved_pizza = Storage.get("cart");
+     if (saved_pizza){
+     Cart=saved_pizza;
+     }
+
+    var sum_order = Storage.get('sumOrder');
+    if (sum_order){
+        sumOrder=sum_order;
+    }
 
 
+    $(".clean-order").click(function () {
+        console.log('clean order');
+        sumOrder = 0;
+        $section.find(".sum-order-number").text(sumOrder);
+        //$cart.html("");
+        console.log(Cart.length);
+        Cart = [];
+        updateCart();
+        console.log(Cart.length);
+    });
 
     updateCart();
 }
@@ -518,16 +601,19 @@ exports.getPizzaInCart = getPizzaInCart;
 exports.initialiseCart = initialiseCart;
 
 exports.SushiSize = SushiSize;
-},{"../Storage":2,"../Templates":4}],7:[function(require,module,exports){
+},{"../Storage":3,"../Templates":5}],8:[function(require,module,exports){
 
 var Templates = require('../Templates');
-var SushiCart = require('./SushiCart');
+var SushiCart = require('./SushiCart2');
 var Sushi_List = require('../Sushi_List');
 
 var $sushi_list = $("#sushi_list");
+var $sushi_menu = $("#sushi_menu");
+
 //var Cart = getPizzaInCart();
 
 function showSushiList(list){
+
     $sushi_list.html("");
 
     function showOneSushi(sushi){
@@ -549,29 +635,91 @@ function showSushiList(list){
     }
 
     list.forEach(showOneSushi);
+    $sushi_menu.find(".number-of-sushi-menu").text(list.length);
+    console.log("Show sushi list "+ list.length);
 
 }
 
+//vegetable
 function filterSushi(filter) {
     var sushi_shown = [];
 
-    Sushi_List.forEach(function(pizza){
-        //$node.find(".")
+    if(!filter) {
+        showSushiList(Sushi_List);
+        return;
+    }
+    console.log(filter);
 
+    Sushi_List.forEach(function(sushi){
+        if(sushi.content[filter])
+            sushi_shown.push(sushi);
     });
 
     showSushiList(sushi_shown)
 }
 
+function makeFilterActive(filter){
+    $('#all').closest('li').removeClass("li-in-active");
+    $('#vegetable').parent().removeClass("li-in-active");
+    $('#avocado').parent().removeClass("li-in-active");
+    $('#mushroom').parent().removeClass("li-in-active");
+    $('#greenery').parent().removeClass("li-in-active");
+    $('#additional').parent().removeClass("li-in-active");
+
+    $('#'+ filter).closest('li').addClass("li-in-active");
+
+    console.log("Active: "+filter);
+
+}
+
 function initialiseMenu(){
+    console.log('lets start');
     showSushiList(Sushi_List);
     console.log('init');
     console.log(Sushi_List.length);
+
+    $('#all').click(function(){
+        showSushiList(Sushi_List);
+        makeFilterActive('all')
+    });
+
+    $('#vegetable').click(function(){
+        console.log('vegetable');
+        filterSushi('vegetable');
+        makeFilterActive('vegetable');
+    });
+
+    $('#avocado').click(function(){
+        console.log('avocado');
+        filterSushi('avocado');
+        makeFilterActive("avocado");
+    });
+
+    $('#mushroom').click(function(){
+        console.log('mushroom');
+        filterSushi('mushroom');
+        makeFilterActive('mushroom');
+    });
+
+    $('#greenery').click(function(){
+        console.log('greenery');
+        filterSushi('greenery');
+        makeFilterActive('greenery');
+    });
+
+    $('#additional').click(function(){
+        console.log('additional');
+        filterSushi('additional');
+        makeFilterActive('additional');
+    });
+
+
+
 }
 
 exports.filterSushi = filterSushi;
 exports.initialiseMenu = initialiseMenu;
-},{"../Sushi_List":3,"../Templates":4,"./SushiCart":6}],8:[function(require,module,exports){
+},{"../Sushi_List":4,"../Templates":5,"./SushiCart2":7}],9:[function(require,module,exports){
 (function () {
 	// Basil
 	var Basil = function (options) {
@@ -940,7 +1088,7 @@ exports.initialiseMenu = initialiseMenu;
 
 })();
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1691,7 +1839,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":11,"./utils":10,"fs":12,"path":13}],10:[function(require,module,exports){
+},{"../package.json":12,"./utils":11,"fs":13,"path":14}],11:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1834,7 +1982,7 @@ exports.cache = {
 };
 
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports={
   "name": "ejs",
   "description": "Embedded JavaScript templates",
@@ -1913,9 +2061,9 @@ module.exports={
   "directories": {}
 }
 
-},{}],12:[function(require,module,exports){
-
 },{}],13:[function(require,module,exports){
+
+},{}],14:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2143,7 +2291,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":14}],14:[function(require,module,exports){
+},{"_process":15}],15:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2236,4 +2384,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[5]);
+},{}]},{},[6]);

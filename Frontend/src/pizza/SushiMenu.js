@@ -1,12 +1,15 @@
 
 var Templates = require('../Templates');
-var SushiCart = require('./SushiCart');
+var SushiCart = require('./SushiCart2');
 var Sushi_List = require('../Sushi_List');
 
 var $sushi_list = $("#sushi_list");
+var $sushi_menu = $("#sushi_menu");
+
 //var Cart = getPizzaInCart();
 
 function showSushiList(list){
+
     $sushi_list.html("");
 
     function showOneSushi(sushi){
@@ -28,24 +31,86 @@ function showSushiList(list){
     }
 
     list.forEach(showOneSushi);
+    $sushi_menu.find(".number-of-sushi-menu").text(list.length);
+    console.log("Show sushi list "+ list.length);
 
 }
 
+//vegetable
 function filterSushi(filter) {
     var sushi_shown = [];
 
-    Sushi_List.forEach(function(pizza){
-        //$node.find(".")
+    if(!filter) {
+        showSushiList(Sushi_List);
+        return;
+    }
+    console.log(filter);
 
+    Sushi_List.forEach(function(sushi){
+        if(sushi.content[filter])
+            sushi_shown.push(sushi);
     });
 
     showSushiList(sushi_shown)
 }
 
+function makeFilterActive(filter){
+    $('#all').closest('li').removeClass("li-in-active");
+    $('#vegetable').parent().removeClass("li-in-active");
+    $('#avocado').parent().removeClass("li-in-active");
+    $('#mushroom').parent().removeClass("li-in-active");
+    $('#greenery').parent().removeClass("li-in-active");
+    $('#additional').parent().removeClass("li-in-active");
+
+    $('#'+ filter).closest('li').addClass("li-in-active");
+
+    console.log("Active: "+filter);
+
+}
+
 function initialiseMenu(){
+    console.log('lets start');
     showSushiList(Sushi_List);
     console.log('init');
     console.log(Sushi_List.length);
+
+    $('#all').click(function(){
+        showSushiList(Sushi_List);
+        makeFilterActive('all')
+    });
+
+    $('#vegetable').click(function(){
+        console.log('vegetable');
+        filterSushi('vegetable');
+        makeFilterActive('vegetable');
+    });
+
+    $('#avocado').click(function(){
+        console.log('avocado');
+        filterSushi('avocado');
+        makeFilterActive("avocado");
+    });
+
+    $('#mushroom').click(function(){
+        console.log('mushroom');
+        filterSushi('mushroom');
+        makeFilterActive('mushroom');
+    });
+
+    $('#greenery').click(function(){
+        console.log('greenery');
+        filterSushi('greenery');
+        makeFilterActive('greenery');
+    });
+
+    $('#additional').click(function(){
+        console.log('additional');
+        filterSushi('additional');
+        makeFilterActive('additional');
+    });
+
+
+
 }
 
 exports.filterSushi = filterSushi;

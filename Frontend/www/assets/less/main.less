@@ -103,12 +103,17 @@
   padding: 5px;
 }
 
+li{
+  display: inline;
+}
+
 .nav-item {
   .navItemBuilder(@mainColor, white);
 }
 
 .li-in-active {
   .navItemBuilder(white, @mainColor);
+  color: white;
 }
 
 .label {
@@ -308,6 +313,11 @@
   .main-second-name{
     color: @secondColor;
     font-size: small;
+  }
+
+  #googleMap{
+    height: 400px;
+    width: 300px;
   }
 
   /*@media(max-width:400px){
