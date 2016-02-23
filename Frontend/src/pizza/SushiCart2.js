@@ -46,7 +46,7 @@ function addToCart(pizza, size) {
 function removeFromCart(cart_item) {
 
     for (var i = 0; i < Cart.length; i++) {
-        if (Cart[i].pizza == cart_item.pizza) {
+        if (Cart[i].pizza === cart_item.pizza && Cart[i].size === cart_item.size) {
             Cart.splice(i, 1);
             console.log('I try to remove you. Sorry, my dear sushi')
         }
@@ -60,7 +60,8 @@ function updateCart() {
     //Тут можна наприклад показати оновлений кошик на екрані та зберегти вміт кошика в Local Storage
 
     //Очищаємо старі піци в кошику
-    $cart.html("");
+    if (Cart.length===0){$cart.find(".section-text").append();}else{
+    $cart.html("");}
 
     //Онволення однієї піци
     function showOnePizzaInCart(cart_item) {
@@ -84,12 +85,18 @@ function updateCart() {
             console.log('minus' + cart_item.quantity);
              sumOrder -= cart_item.price;
 
+
+            if (cart_item.quantity == 0) {
+                console.log('null remove sushi');
+                console.log(Cart);
+                $node.remove();
+                console.log(cart_item.quantity);
+                removeFromCart(cart_item);
+            }
+
             //Оновлюємо відображення
             updateCart();
         });
-
-
-        $cart.append($node);
 
         if (cart_item.quantity == 0) {
             console.log('null remove sushi');
@@ -98,6 +105,10 @@ function updateCart() {
             console.log(cart_item.quantity);
             removeFromCart(cart_item);
         }
+
+        $cart.append($node);
+
+
 
         $node.find(".info-delete").click(function () {
             //Видаляемо суші із списку покупок
@@ -135,27 +146,36 @@ function updateCart() {
     Storage.set("cart", Cart); // записуємо значення замовлених піц
     Storage.set("sumOrder", sumOrder);
 
+    if (Cart.length===0) { sumOrder=0;}
 }
 
 function initialiseCart() {
     //Фукнція віпрацьвуватиме при завантаженні сторінки
     //Тут можна наприклад, зчитати вміст корзини який збережено в Local Storage то показати його
     var saved_pizza = Storage.get("cart");
-     if (saved_pizza){
-     Cart=saved_pizza;
-     }
-
-    var sum_order = Storage.get('sumOrder');
-    if (sum_order){
-        sumOrder=sum_order;
+    if (saved_pizza) {
+        Cart = saved_pizza;
     }
+
+    /*var sum_order = Storage.get('sumOrder');
+    if (sum_order) {
+        sumOrder = sum_order;
+    }*/
+
+
+    for (var i = 0; i < Cart.length; i++) {
+        for (var j = 1; j <= Cart[i].quantity; j++) {
+        sumOrder += Cart[i].price;
+    }}
+
 
 
     $(".clean-order").click(function () {
         console.log('clean order');
         sumOrder = 0;
         $section.find(".sum-order-number").text(sumOrder);
-        //$cart.html("");
+        $cart.html("");
+        $cart.find(".section-text").show();
         console.log(Cart.length);
         Cart = [];
         updateCart();
